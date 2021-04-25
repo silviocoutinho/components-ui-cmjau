@@ -1,10 +1,16 @@
 {
   "name": "components-ui-cmjau",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React UI Components Library for CMJAU's Projects",
   "private": false,
-  "keywords": ["components", "ui", "cmjau"],
+  "keywords": [
+    "components",
+    "ui",
+    "cmjau"
+  ],
+  "license": "MIT",
   "dependencies": {
+    "@babel/preset-env": "^7.13.15",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -24,7 +30,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prebuild": "babel src/components --out-dir lib --copy-files",
+    "prepare": "npm run prebuild"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +53,11 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.9"
+    "@types/styled-components": "^5.1.9",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-typescript": "^7.0.0-alpha.19"
   }
 }
