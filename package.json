@@ -1,7 +1,7 @@
 {
   "name": "components-ui-cmjau",
-  "main": "lib/index.tsx",
-  "version": "0.1.5",
+  "main": "lib/index.ts",
+  "version": "0.1.6",
   "description": "React UI Components Library for CMJAU's Projects",
   "private": false,
   "keywords": [
