@@ -1,13 +1,6 @@
 import React from 'react';
-import { Wrapper } from './styles';
-
-interface Props {
-  fieldName: string;
-  label: string;
-  placeholder: string;
-  defaultValue?: string;
-  errorMessage?: string;
-}
+import { Props } from './Input.types';
+import { Wrapper } from './Input.styles';
 
 const Input = ({
   fieldName,
