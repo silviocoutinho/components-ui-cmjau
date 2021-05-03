@@ -10,7 +10,7 @@ const Input = ({
   errorMessage,
 }: Props) => {
   return (
-    <Wrapper>
+    <Wrapper hideLabel={label == null}>
       {label && <label>{label}</label>}
       <input
         id={fieldName}

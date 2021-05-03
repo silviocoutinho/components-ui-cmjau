@@ -28,5 +28,6 @@ export const All = () => (
       placeholder="Type a text"
       errorMessage="Please, type a number"
     />
+    <Input fieldName="example4" placeholder="No label" />
   </>
 );

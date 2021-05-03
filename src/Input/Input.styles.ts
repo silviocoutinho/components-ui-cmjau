@@ -1,7 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { light as theme } from '../styles/theme';
 
-export const Wrapper = styled.div`
+interface InputProps {
+  readonly hideLabel: boolean;
+}
+
+export const Wrapper = styled.div<InputProps>`
   display: flex;
   flex-direction: column;
   input {
@@ -9,6 +13,8 @@ export const Wrapper = styled.div`
     border-radius: 0.25rem;
     height: 1.5rem;
     padding: 0.25rem;
+
+    margin-top: ${props => (props.hideLabel ? '28px' : '0px')};
 
     &:focus {
       border-color: ${theme.colors.focusedBorder};
@@ -23,11 +29,16 @@ export const Wrapper = styled.div`
   }
 
   label {
-    font-size: 14px;
-    color: ${theme.colors.label};
-    text-align: left;
-    margin-bottom: 6px;
-    margin-top: 12px;
+    ${props =>
+      props.hideLabel === false &&
+      css`
+        font-size: 14px;
+        font-weight: bold;
+        color: ${theme.colors.label};
+        text-align: left;
+        margin-bottom: 6px;
+        margin-top: 12px;
+      `}
   }
   span {
     display: flex;
