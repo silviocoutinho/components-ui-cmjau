@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import {FiMail} from 'react-icons/fi';
+import { FiMail } from 'react-icons/fi';
 
 import Input from './Input';
 
@@ -17,14 +17,14 @@ Basic.args = {
 
 export const Icon = () => (
   <>
-      <Input
+    <Input
       fieldName="exampleIcon"
       label="Example with Icon"
-      placeholder="Type a text"  
-      icon={FiMail}   
+      placeholder="Type a text"
+      icon={FiMail}
     />
   </>
-)
+);
 
 export const All = () => (
   <>
