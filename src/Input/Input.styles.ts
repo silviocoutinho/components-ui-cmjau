@@ -40,6 +40,9 @@ export const Wrapper = styled.div<InputProps>`
         margin-top: 12px;
       `}
   }
+  svg {
+    display: inline-block;
+  }
   span {
     display: flex;
     flex-direction: column;
