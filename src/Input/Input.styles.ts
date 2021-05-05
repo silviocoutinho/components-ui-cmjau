@@ -4,6 +4,7 @@ import { light as theme } from '../styles/theme';
 interface InputProps {
   readonly hideLabel: boolean;
   readonly inputIcon: boolean;
+  readonly isFocusedOrFilled: boolean;
 }
 
 export const Wrapper = styled.div<InputProps>`
@@ -22,6 +23,10 @@ export const Wrapper = styled.div<InputProps>`
     z-index: 2;
     margin-top: 0.45rem;
     margin-left: 0.25rem;
+    color: ${props =>
+      props.isFocusedOrFilled
+        ? theme.colors.focusedIcon
+        : theme.colors.placeholder};
   }
 
   input {
