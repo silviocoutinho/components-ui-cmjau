@@ -8,6 +8,7 @@ const light: DefaultTheme = {
     secondary: '#ccffcc',
 
     placeholder: '#bfbfbf',
+    focusedIcon: '#8c8c8c',
     label: '#4f4f4f',
     background: '#fff',
     font: '#404040',
