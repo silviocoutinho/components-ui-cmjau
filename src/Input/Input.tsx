@@ -3,9 +3,9 @@ import { Props } from './Input.types';
 import { Wrapper } from './Input.styles';
 
 const Input = ({ icon: Icon, label, errorMessage, ...rest }: Props) => (
-  <Wrapper hideLabel={label == null}>
+  <Wrapper hideLabel={label == null} inputIcon={Icon && true}>
     {label && <label>{label}:</label>}
-    <span>
+    <div className="input-container">
       {Icon && <Icon size={20} />}
       <input {...rest} />
       {errorMessage && (
@@ -13,7 +13,7 @@ const Input = ({ icon: Icon, label, errorMessage, ...rest }: Props) => (
           <span>{errorMessage}</span>
         </div>
       )}
-    </span>
+    </div>
   </Wrapper>
 );
 

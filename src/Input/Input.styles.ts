@@ -3,18 +3,39 @@ import { light as theme } from '../styles/theme';
 
 interface InputProps {
   readonly hideLabel: boolean;
+  readonly inputIcon: boolean;
 }
 
 export const Wrapper = styled.div<InputProps>`
   display: flex;
   flex-direction: column;
+  flex: 1;
+
+  .input-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  svg {
+    grid-row-start: 1;
+    grid-column: 1;
+    z-index: 2;
+    margin-top: 0.45rem;
+    margin-left: 0.25rem;
+  }
+
   input {
+    grid-row: 1;
+    grid-column: 1/3;
+
     border: 1px solid ${theme.colors.border};
     border-radius: 0.25rem;
     height: 1.5rem;
     padding: 0.25rem;
 
     margin-top: ${props => (props.hideLabel ? '28px' : '0px')};
+
+    padding-left: ${props => (props.inputIcon ? '1.75rem' : '0.25rem')};
 
     &:focus {
       border-color: ${theme.colors.focusedBorder};
@@ -40,9 +61,7 @@ export const Wrapper = styled.div<InputProps>`
         margin-top: 12px;
       `}
   }
-  svg {
-    display: inline-block;
-  }
+
   span {
     display: flex;
     flex-direction: column;
