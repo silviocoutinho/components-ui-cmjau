@@ -3,7 +3,7 @@ import React, { InputHTMLAttributes } from 'react';
 import { IconBaseProps } from 'react-icons';
 
 export interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  fieldName: string;
+  field: string;
   label?: string;
   placeholder: string;
   defaultValue?: string;
