@@ -1,11 +1,50 @@
 {
   "env": {
-    "es6": true,
-    "browser": true
+    "browser": true,
+    "es2021": true
   },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "rules": {}
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
+    "react/jsx-one-expression-per-line": "off",
+    "import/prefer-default-export": "off",
+
+    "object-curly-newline": ["error", { "multiline": false }],
+
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "components": ["Label"],
+        "required": {
+          "some": ["nesting", "id"]
+        },
+        "allowChildren": false
+      }
+    ],
+
+    "rules": {
+      "import/no-unresolved": [2, { "caseSensitive": false }]
+    }
+  },
+  "settings": {
+    "import/resolver": {}
+  }
 }
