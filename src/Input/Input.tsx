@@ -10,9 +10,7 @@ const Input = ({ icon: Icon, label, errorMessage, ...rest }: Props) => {
 
   const handleInputBlur = useCallback(() => {
     setIsFocused(false);
-
     setIsFilled(!!inputRef.current?.value);
-    console.log(isFilled, isFocused, !!inputRef.current?.value);
   }, [inputRef]);
 
   const handleInputFocus = useCallback(() => {
@@ -36,7 +34,7 @@ const Input = ({ icon: Icon, label, errorMessage, ...rest }: Props) => {
           ref={inputRef}
         />
         {errorMessage && (
-          <div className="alert">
+          <div>
             <span>{errorMessage}</span>
           </div>
         )}

@@ -1,6 +1,6 @@
 {
   "name": "components-ui-cmjau",
-  "version": "0.1.9",
+  "version": "0.1.14",
   "description": "React UI Components Library for CMJAU's Projects",
   "main": "build/index.js",
   "module": "build/index.esm.js",
@@ -32,6 +32,7 @@
     "styled-components": "^5.2.3"
   },
   "dependencies": {
+    "formik": "^2.2.6",
     "react-icons": "^4.2.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"

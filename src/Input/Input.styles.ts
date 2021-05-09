@@ -70,17 +70,13 @@ export const Wrapper = styled.div<InputProps>`
   span {
     display: flex;
     flex-direction: column;
-    color: ${theme.colors.error};
     align-self: flex-start;
-    margin-top: 3px;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  .alert {
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
+
+    color: ${theme.colors.error};
+    font-size: 0.75rem;
+    font-weight: bold;
   }
 `;
