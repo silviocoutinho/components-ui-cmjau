@@ -1,10 +1,7 @@
-import React, { InputHTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 
-import { IconBaseProps } from 'react-icons';
-
-export interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  label: string; 
-  type: string; 
-  icon?: React.ComponentType<IconBaseProps>;
- 
+export interface Props extends HTMLAttributes<HTMLButtonElement> {
+  label: string;
+  btnStyle: 'primary' | 'success' | 'danger' | 'warning' | 'info' | 'dark';
+  type: 'submit' | 'button' | 'reset';
 }

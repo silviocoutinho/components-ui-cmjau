@@ -10,18 +10,17 @@ export default {
 
 export const Basic = args => <Button {...args} />;
 Basic.args = {
-  type: 'primary',
-  label: 'Primary',  
+  btnStyle: 'primary',
+  label: 'Primary',
 };
 
 export const Type = () => (
   <>
-    <Button  type="primary" label="Primary"/>
-    <Button  type="success" label="Success"/>
-    <Button  type="danger" label="Danger"/>
-    <Button  type="warning" label="Warning"/>
-    <Button  type="info" label="Info"/>
-    <Button  type="dark" label="Dark"/>
+    <Button btnStyle="primary" label="Primary" type="submit" />
+    <Button btnStyle="success" label="Success" type="button" />
+    <Button btnStyle="danger" label="Danger" type="button" />
+    <Button btnStyle="warning" label="Warning" type="button" />
+    <Button btnStyle="info" label="Info" type="button" />
+    <Button btnStyle="dark" label="Dark" type="button" />
   </>
 );
-
