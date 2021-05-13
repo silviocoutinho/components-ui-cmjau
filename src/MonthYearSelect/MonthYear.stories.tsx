@@ -10,7 +10,7 @@ export default {
 export const Basic = args => <MonthYear {...args} />;
 Basic.args = {
   field: 'example1',
-  startYear: 2020,
+  startYear: 2018,
   endYear: 2021,
 };
 
