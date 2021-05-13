@@ -4,34 +4,39 @@ import { light as theme } from '../styles/theme';
 interface MonthYearProps {}
 
 export const Wrapper = styled.div<MonthYearProps>`
+  font-family: 'Titillium Web', sans-serif;
+
   .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 2rem;
-    background-color: #00f;
+    background-color: transparent;
     padding: 1rem;
   }
 
   .grid-container > div {
-    background-color: #ff0;
+    background-color: transparent;
     text-align: center;
-    font-size: 30px;
+
+    .primary {
+      margin-top: auto;
+    }
   }
 
   .select-container {
     display: flex;
     flex-direction: column;
-    padding: 0px;
+    padding: 0rem;
   }
 
   .button-container {
     display: flex;
-    align-self: flex-end;
+    flex-direction: column;
     padding: 1rem;
   }
 
   label {
-    font-size: 14px;
+    font-size: 1.2rem;
     font-weight: bold;
     color: ${theme.colors.label};
     text-align: left;
@@ -40,18 +45,25 @@ export const Wrapper = styled.div<MonthYearProps>`
     margin-left: 6px;
   }
 
-  input {
-    grid-row: 1;
-    grid-column: 1/3;
+  button {
+    font-size: 1rem;
+    font-weight: 550;
+  }
 
+  select {
+    appearance: none;
+    background-color: transparent;
     border: 1px solid ${theme.colors.border};
     border-radius: 0.25rem;
-    height: 1.5rem;
+    height: 2rem;
     padding: 0.25rem;
 
-    margin-top: 1rem;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 0.25rem;
 
-    padding-left: 1rem;
+    font-size: 1rem;
 
     &:focus {
       border-color: ${theme.colors.focusedBorder};
@@ -63,18 +75,13 @@ export const Wrapper = styled.div<MonthYearProps>`
     &::placeholder {
       color: ${theme.colors.placeholder};
     }
-  }
 
-  span {
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-    padding: 0.5rem 0.5rem;
-
-    color: ${theme.colors.error};
-    font-size: 0.75rem;
-    font-weight: bold;
+    &::after {
+      content: '';
+      width: 0.8em;
+      height: 0.5em;
+      background-color: var(--select-arrow);
+      clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    }
   }
 `;
