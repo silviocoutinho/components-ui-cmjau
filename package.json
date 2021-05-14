@@ -23,7 +23,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006",
-    "storybook:export": "build-storybook -s public -o docs",
+    "storybook:export": "build-storybook",
+    "storybook:docs": "build-storybook -s public -o docs",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
