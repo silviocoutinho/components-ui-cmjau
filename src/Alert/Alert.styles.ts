@@ -5,6 +5,7 @@ interface InputProps {
 }
 
 export const Wrapper = styled.div<InputProps>`
+  font-family: 'Titillium Web', sans-serif;
   display: flex;
   flex-direction: column;
   flex: 1;
