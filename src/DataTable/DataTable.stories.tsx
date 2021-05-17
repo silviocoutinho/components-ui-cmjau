@@ -9,6 +9,5 @@ export default {
 
 export const Basic = args => <DataTable {...args} />;
 Basic.args = {
-  message: 'A simple primary alert—check it out!',
-  type: 'primary',
+ 
 };
