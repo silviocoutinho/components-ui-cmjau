@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 interface InputProps {
-  readonly align: string;
+ 
 }
 
 export const Wrapper = styled.div<InputProps>`
@@ -10,14 +10,42 @@ export const Wrapper = styled.div<InputProps>`
   flex-direction: column;
   flex: 1;
 
-  div {
+  table {
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 0.75rem 1.25rem;
-    font-size: 0.75rem;
-    font-weight: bold;
-    text-align: ${props => (props.align ? props.align : 'left')};
-    border-radius: 0.5rem;
+    font-size: 1rem;    
+   
+    border: 1px solid #b3b3b3;
+    width: 100%;
+    border-collapse: collapse;
+  
+  
+    .class-even {
+        background-color: #f2f2f2;
+    }
+    .class-odd {
+      background-color: #e6e6e6;
+    }
+
+    th {
+      font-weight: bold;
+      text-align: center;
+      border: 1px solid #b3b3b3;
+      background-color: #cccccc;
+      border-left: none;
+      border-right: none;
+    }
+
+    td {
+      font-weight: 300;
+      text-align: center;
+      border: 1px solid #b3b3b3;
+      border-left: none;
+      border-right: none;
+    }
+
+
   }
 
   .primary {
