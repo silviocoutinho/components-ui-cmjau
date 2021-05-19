@@ -8,6 +8,7 @@ interface InputProps {
 }
 
 export const Wrapper = styled.div<InputProps>`
+  font-family: 'Titillium Web', sans-serif;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -42,6 +43,8 @@ export const Wrapper = styled.div<InputProps>`
 
     padding-left: ${props => (props.inputIcon ? '1.75rem' : '0.25rem')};
 
+    font-size: 1rem;
+
     &:focus {
       border-color: ${theme.colors.focusedBorder};
       background-color: ${theme.colors.focusedBackgroud};
@@ -58,7 +61,7 @@ export const Wrapper = styled.div<InputProps>`
     ${props =>
       props.hideLabel === false &&
       css`
-        font-size: 14px;
+        font-size: 1rem;
         font-weight: bold;
         color: ${theme.colors.label};
         text-align: left;
