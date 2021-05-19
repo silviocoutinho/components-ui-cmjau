@@ -37,6 +37,7 @@ const TimeCard = ({ data, head, ...rest }: Props) => {
   };
 
   const overTime = (in3, out3) => {
+    if (in3 == null || out3 == null) return '';
     in3 = new Date('1970-01-01T' + in3 + 'Z').getTime();
     out3 = new Date('1970-01-01T' + out3 + 'Z').getTime();
 
