@@ -1,8 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-interface InputProps {
- 
-}
+interface InputProps {}
 
 export const Wrapper = styled.div<InputProps>`
   font-family: 'Titillium Web', sans-serif;
@@ -14,15 +12,14 @@ export const Wrapper = styled.div<InputProps>`
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 0.75rem 1.25rem;
-    font-size: 1rem;    
-   
+    font-size: 1rem;
+
     border: 1px solid #b3b3b3;
     width: 100%;
     border-collapse: collapse;
-  
-  
+
     .class-even {
-        background-color: #f2f2f2;
+      background-color: #f2f2f2;
     }
     .class-odd {
       background-color: #e6e6e6;
@@ -44,8 +41,6 @@ export const Wrapper = styled.div<InputProps>`
       border-left: none;
       border-right: none;
     }
-
-
   }
 
   .primary {

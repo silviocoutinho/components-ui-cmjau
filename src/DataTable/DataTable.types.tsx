@@ -1,5 +1,4 @@
-import { HTMLAttributes } from 'react';
-
-export interface Props extends HTMLAttributes<HTMLDivElement> {
- 
+export interface Props {
+  data: any;
+  head: any;
 }
