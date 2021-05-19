@@ -4,7 +4,7 @@ import { Wrapper } from './TimeCard.styles';
 
 import DataTable from '../DataTable/DataTable';
 
-const TimeCard = ({ data, head, ...rest }: Props) => {
+const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
   const componentRef = useRef<HTMLDivElement>(null);
   let hasOverTime: boolean;
 
@@ -17,22 +17,41 @@ const TimeCard = ({ data, head, ...rest }: Props) => {
         ];
   };
 
-  const diffTime = (in1, out1, in2, out2) => {
+  const diffTime = (in1, out1, in2, out2, workingTime) => {
     in1 = new Date('1970-01-01T' + in1 + 'Z').getTime();
     out1 = new Date('1970-01-01T' + out1 + 'Z').getTime();
     in2 = new Date('1970-01-01T' + in2 + 'Z').getTime();
     out2 = new Date('1970-01-01T' + out2 + 'Z').getTime();
 
-    let diffMinutes = (out1 - in1) / (1000 * 60);
-    diffMinutes = diffMinutes + (out2 - in2) / (1000 * 60);
+    let workedMinutes = (out1 - in1) / (1000 * 60);
+    workedMinutes = workedMinutes + (out2 - in2) / (1000 * 60);
 
-    let diffHours = Math.floor(diffMinutes / 60);
-    diffMinutes = diffMinutes - diffHours * 60;
+    //Calculing diff between workedTime and workingTime
+    const diffMinutes = workingTime * 60 - workedMinutes;
+
+    let workedHours = Math.floor(workedMinutes / 60);
+    workedMinutes = workedMinutes - workedHours * 60;
+
+    let colorTotalTime = 'success';
+
+    if (diffMinutes > 0 && diffMinutes <= 5) {
+      colorTotalTime = 'warning';
+    }
+
+    if (diffMinutes > 5 && diffMinutes <= 10) {
+      colorTotalTime = 'advisory';
+    }
+
+    if (diffMinutes > 10) {
+      colorTotalTime = 'danger';
+    }
 
     return (
-      diffHours.toString().padStart(2, '0') +
-      ':' +
-      diffMinutes.toString().padStart(2, '0')
+      <div className={colorTotalTime}>
+        {workedHours.toString().padStart(2, '0') +
+          ':' +
+          workedMinutes.toString().padStart(2, '0')}
+      </div>
     );
   };
 
@@ -65,6 +84,7 @@ const TimeCard = ({ data, head, ...rest }: Props) => {
     const { ent3, sai3, dia, ...rest } = element;
     if (hasOverTime) {
       return {
+        data: dia,
         diaDaSemana: getDayOfWeek(dia),
         ...rest,
         total: diffTime(
@@ -72,6 +92,7 @@ const TimeCard = ({ data, head, ...rest }: Props) => {
           element['sai1'],
           element['ent2'],
           element['sai2'],
+          workingTime,
         ),
         ent3,
         sai3,
@@ -79,6 +100,7 @@ const TimeCard = ({ data, head, ...rest }: Props) => {
       };
     } else {
       return {
+        data: dia,
         diaDaSemana: getDayOfWeek(dia),
         ...rest,
         total: diffTime(
@@ -86,6 +108,7 @@ const TimeCard = ({ data, head, ...rest }: Props) => {
           element['sai1'],
           element['ent2'],
           element['sai2'],
+          workingTime,
         ),
       };
     }
