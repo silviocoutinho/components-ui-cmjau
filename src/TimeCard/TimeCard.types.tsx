@@ -11,4 +11,5 @@ export interface Props {
     sai3: string;
   }>;
   head: any;
+  workingTime: number;
 }
