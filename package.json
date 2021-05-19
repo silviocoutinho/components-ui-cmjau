@@ -1,6 +1,6 @@
 {
   "name": "components-ui-cmjau",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "React UI Components Library for CMJAU's Projects",
   "main": "build/index.js",
   "module": "build/index.esm.js",
@@ -24,7 +24,7 @@
     "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006",
     "storybook:export": "build-storybook",
-    "storybook:docs": "build-storybook -s public -o docs",
+    "storybook:docs": "build-storybook -o docs",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
