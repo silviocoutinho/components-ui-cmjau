@@ -16,7 +16,12 @@ Basic.args = {
 
 export const Type = () => (
   <>
-    <Button btnStyle="primary" label="Primary" type="submit" />
+    <Button
+      btnStyle="primary"
+      label="Primary"
+      type="submit"
+      onClick={() => console.log('Click Primary')}
+    />
     <Button btnStyle="success" label="Success" type="button" />
     <Button btnStyle="danger" label="Danger" type="button" />
     <Button btnStyle="warning" label="Warning" type="button" />

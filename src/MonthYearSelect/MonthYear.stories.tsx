@@ -14,8 +14,10 @@ Basic.args = {
   endYear: 2021,
 };
 
-export const Icon = () => (
+const data = '';
+
+export const Click = () => (
   <>
-    <MonthYear field="exampleIcon" startYear={2020} endYear={2020} />
+    <MonthYear field="exampleIcon" startYear={2015} endYear={2020} />
   </>
 );
