@@ -56,12 +56,12 @@ const head = {
   ent2: 'Entrada 2',
   sai2: 'Saída 2',
   dia: 'Data',
-  diaDaSemana: 'Dia',
+  diaDaSemana: 'Dia da Semana',
   total: 'Total',
   ent3: 'Entrada 3',
   sai3: 'Saída 3',
   horaExtra: 'Hora-extra',
-  data: 'Data',
+  data: 'Dia',
 };
 
 export default {
