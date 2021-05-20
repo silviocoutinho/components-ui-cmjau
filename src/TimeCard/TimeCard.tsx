@@ -17,6 +17,11 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
         ];
   };
 
+  const getNumberDay = date => {
+    const numberDay = new Date(date).getDate();
+    return isNaN(numberDay) ? null : numberDay;
+  };
+
   const diffTime = (in1, out1, in2, out2, workingTime) => {
     in1 = new Date('1970-01-01T' + in1 + 'Z').getTime();
     out1 = new Date('1970-01-01T' + out1 + 'Z').getTime();
@@ -84,7 +89,7 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
     const { ent3, sai3, dia, ...rest } = element;
     if (hasOverTime) {
       return {
-        data: dia,
+        data: getNumberDay(dia),
         diaDaSemana: getDayOfWeek(dia),
         ...rest,
         total: diffTime(
@@ -100,7 +105,7 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
       };
     } else {
       return {
-        data: dia,
+        data: getNumberDay(dia),
         diaDaSemana: getDayOfWeek(dia),
         ...rest,
         total: diffTime(
