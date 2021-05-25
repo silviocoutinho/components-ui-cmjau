@@ -1,7 +1,3 @@
-import { HTMLAttributes } from 'react';
-
-export interface Props extends HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-  columns: number;  
-  
+export interface GridProps extends React.ComponentPropsWithoutRef<'div'> {
+  columns?: number;
 }

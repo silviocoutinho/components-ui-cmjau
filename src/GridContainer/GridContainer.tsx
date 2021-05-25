@@ -1,19 +1,11 @@
 import React, { useRef, forwardRef, ReactNode } from 'react';
-import { Props } from './GridContainer.types';
+import { GridProps } from './GridContainer.types';
 import { Wrapper } from './GridContainer.styles';
 
 export type Ref = HTMLDivElement;
 
-const GridContainer = forwardRef<Ref, Props>(props, ref) => {
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  return (
-    <Wrapper columns={columns}>
-      <div ref={ref}>
-        {Props.children}
-      </div>
-    </Wrapper>
-  );
-};
+const GridContainer = forwardRef<Ref, GridProps>((props, ref) => (
+  <Wrapper columns={props.columns}>{props.children}</Wrapper>
+));
 
 export default GridContainer;
