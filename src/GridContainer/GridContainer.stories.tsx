@@ -3,6 +3,7 @@ import { Wrapper as WrapperButton } from '../Button/Button.styles';
 
 import GridContainer from './GridContainer';
 import Select from '../Select/Select';
+import Input from '../Input/Input';
 import Button from '../Button/Button';
 
 export default {
@@ -10,14 +11,17 @@ export default {
   component: GridContainer,
 };
 
-export const Basic = args => <GridContainer {...args} />;
+export const Basic = args => <GridContainer {...args} >Text</GridContainer>;
 Basic.args = {
-  columns: 3,
+  columns: 1,
 };
 
 export const Label = () => (
   <>
-    <GridContainer columns={3}>Children</GridContainer>
+    <GridContainer columns={2}>
+      <label className="label-container">Label 1</label>
+      <label className="label-container">Label 2</label>
+    </GridContainer>
   </>
 );
 
@@ -65,8 +69,8 @@ export const Form = () => (
       <div className="select-container">
         <Select data={months} field="month" label="Mês" />
       </div>
-      <div className="select-container">
-        <Select data={years} field="year" label="Mês" />
+      <div className="input-container">
+        <Input field="year" label="Year" placeholder="Type here" />
       </div>
       <div className="button-container">
         <Button label="Filtrar" btnStyle="success" type="button" />
