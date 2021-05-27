@@ -1,13 +1,14 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Props } from './MonthYear.types';
 import { Wrapper } from './MonthYear.styles';
-import Button from '../Button/Button';
+import { Wrapper as WrapperButton } from '../Button/Button.styles';
 
 const MonthYear = ({ startYear, endYear, errorMessage, ...rest }: Props) => {
   const monthRef = useRef<HTMLSelectElement>(null);
   const yearRef = useRef<HTMLSelectElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const [fieldMonth, setFieldMonth] = useState(0);
+  const [fieldMonth, setFieldMonth] = useState('Janeiro');
   const [fieldYear, setFieldYear] = useState(endYear);
   const [controlMonth, setControlMonth] = useState(new Date().getMonth());
 
@@ -28,7 +29,7 @@ const MonthYear = ({ startYear, endYear, errorMessage, ...rest }: Props) => {
 
   const handleYear = evt => {
     setFieldYear(evt.target.value);
-    setFieldMonth(0);
+    setFieldMonth('Janeiro');
     if (evt.target.value == endYear) {
       setControlMonth(new Date().getMonth());
     } else {
@@ -84,7 +85,11 @@ const MonthYear = ({ startYear, endYear, errorMessage, ...rest }: Props) => {
           </select>
         </div>
 
-        <Button type="button" btnStyle="primary" label="Filtrar" />
+        <WrapperButton>
+          <button className="primary" type="submit" ref={buttonRef}>
+            Filtrar
+          </button>
+        </WrapperButton>
 
         {errorMessage && (
           <div>

@@ -7,9 +7,6 @@ export const Wrapper = styled.div<MonthYearProps>`
   font-family: 'Titillium Web', sans-serif;
 
   .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 2rem;
     background-color: transparent;
     padding: 1rem;
   }
@@ -17,23 +14,12 @@ export const Wrapper = styled.div<MonthYearProps>`
   .grid-container > div {
     background-color: transparent;
     text-align: center;
-
-    .primary {
-      margin-top: auto;
-    }
   }
 
   .select-container {
     display: flex;
     flex-direction: column;
     padding: 0rem;
-  }
-
-  .button-container {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    margin-top: 10px;
   }
 
   label {
@@ -44,11 +30,6 @@ export const Wrapper = styled.div<MonthYearProps>`
     margin-bottom: 6px;
     margin-top: 12px;
     margin-left: 6px;
-  }
-
-  button {
-    font-size: 1rem;
-    font-weight: 550;
   }
 
   select {
