@@ -1,6 +1,6 @@
 {
   "name": "components-ui-cmjau",
-  "version": "0.1.30",
+  "version": "0.1.31",
   "description": "React UI Components Library for CMJAU's Projects",
   "main": "build/index.js",
   "module": "build/index.esm.js",
