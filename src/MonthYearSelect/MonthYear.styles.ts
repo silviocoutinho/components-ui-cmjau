@@ -33,6 +33,7 @@ export const Wrapper = styled.div<MonthYearProps>`
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    margin-top: 10px;
   }
 
   label {
