@@ -3,7 +3,7 @@ import React from 'react';
 import MonthYear from './MonthYear';
 
 export default {
-  title: 'forms/MonthYear',
+  title: 'template/MonthYear',
   component: MonthYear,
 };
 
