@@ -18,7 +18,7 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
   };
 
   const getNumberDay = date => {
-    const numberDay = new Date(date).getDate();
+    const numberDay = new Date(date).getDate()+1;
     return isNaN(numberDay) ? null : numberDay;
   };
 
@@ -27,6 +27,10 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
     out1 = new Date('1970-01-01T' + out1 + 'Z').getTime();
     in2 = new Date('1970-01-01T' + in2 + 'Z').getTime();
     out2 = new Date('1970-01-01T' + out2 + 'Z').getTime();
+        
+    isNaN(out1) ? out1=in1 : out1;
+    isNaN(in2) ? in2=out1 : in2;
+    isNaN(out2) ? out2=in2 : out2;   
 
     let workedMinutes = (out1 - in1) / (1000 * 60);
     workedMinutes = workedMinutes + (out2 - in2) / (1000 * 60);
