@@ -2,8 +2,19 @@ import React, { useRef } from 'react';
 import { Props } from './Select.types';
 import { Wrapper } from './Selecy.styles';
 
-const Select = ({ label, data, field, onChange, ...rest }: Props) => {
+const Select = ({
+  label,
+  data,
+  field,
+  selectedValue,
+  onChange,
+  ...rest
+}: Props) => {
   const componentRef = useRef<HTMLSelectElement>(null);
+
+  const isSelected = value => {
+    return value === selectedValue;
+  };
 
   return (
     <Wrapper>
@@ -13,7 +24,11 @@ const Select = ({ label, data, field, onChange, ...rest }: Props) => {
           <select id="selectMonths" ref={componentRef} onChange={onChange}>
             {data.map((element, key) => {
               return (
-                <option key={key} value={element.value}>
+                <option
+                  key={key}
+                  value={element.value}
+                  selected={isSelected(element.value)}
+                >
                   {element.label}
                 </option>
               );

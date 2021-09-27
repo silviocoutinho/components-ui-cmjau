@@ -35,4 +35,5 @@ Basic.args = {
   field: 'example1',
   label: 'Month',
   data: data,
+  selectedValue: 5,
 };
