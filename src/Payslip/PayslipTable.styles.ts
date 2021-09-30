@@ -28,6 +28,7 @@ export const Wrapper = styled.div<InputProps>`
     th {
       font-weight: bold;
       text-align: center;
+      font-size: 1.125rem;
       border: 1px solid #b3b3b3;
       background-color: #cccccc;
       border-left: none;
@@ -37,9 +38,17 @@ export const Wrapper = styled.div<InputProps>`
     td {
       font-weight: 300;
       text-align: center;
+      font-size: 1.125rem;
       border: 1px solid #b3b3b3;
       border-left: none;
       border-right: none;
+
+      a {
+        color: #000;
+        text-decoration: none;
+        font-size: 1.5rem;
+        border: 1px solid #b3b3b3;
+      }
 
       .danger {
         color: #721c24;

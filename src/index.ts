@@ -8,4 +8,14 @@ import Select from './Select/Select';
 import PayslipTable from './Payslip/PayslipTable';
 import GridContainer from './GridContainer/GridContainer';
 
-export { Input, Alert, Button, DataTable, MonthYear, TimeCard, Select, PayslipTable, GridContainer };
+export {
+  Input,
+  Alert,
+  Button,
+  DataTable,
+  MonthYear,
+  TimeCard,
+  Select,
+  PayslipTable,
+  GridContainer,
+};
