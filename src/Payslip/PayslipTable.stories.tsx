@@ -6,29 +6,29 @@ const data = [
   {
     referencia: '05/2021',
     tipo: 'Mensal',
-    link: 'holerite05.pdf',    
-  },  
+    link: '2021-09-27_01.jpg',
+  },
   {
     referencia: '06/2021',
     tipo: 'Mensal',
-    link: 'holerite06.pdf',    
+    link: '2021-09-27_01.jpg',
   },
   {
     referencia: '06/2021',
     tipo: 'Adiantamento 13',
-    link: 'holerite13-1.pdf',    
+    link: '2021-09-27_01.jpg',
   },
   {
     referencia: '07/2021',
     tipo: 'Mensal',
-    link: 'holerite07.pdf',    
+    link: '2021-09-27_01.jpg',
   },
 ];
 
 const head = {
   referencia: 'Referência',
   tipo: 'Tipo de Holerite',
-  link: 'Download',  
+  link: 'Download',
 };
 
 export default {
@@ -37,6 +37,11 @@ export default {
 };
 
 export const Basic = args => (
-  <PayslipTable data={data} head={head} pathToFile={'http://www.test.com'} {...args} />
+  <PayslipTable
+    data={data}
+    head={head}
+    pathToFile={'http://www.camarajau.sp.gov.br/images/Imagens/Noticias2021'}
+    {...args}
+  />
 );
 Basic.args = {};

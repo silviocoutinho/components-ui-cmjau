@@ -8,6 +8,18 @@ export const Wrapper = styled.div<InputProps>`
   flex-direction: column;
   flex: 1;
 
+  .link-file {
+    &:hover {
+      color: #721c24;
+    }
+
+    &:active {
+      color: #1a88ff;
+      box-shadow: 0 2px #666;
+      transform: translateY(1px);
+    }
+  }
+
   table {
     margin-top: 1rem;
     margin-bottom: 1rem;
