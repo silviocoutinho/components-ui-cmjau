@@ -9,7 +9,7 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
   let hasOverTime: boolean;
 
   const getDayOfWeek = date => {
-    const dayOfWeek = new Date(date).getDay() + 1;
+    const dayOfWeek = new Date(date).getDay();
     return isNaN(dayOfWeek)
       ? null
       : ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'][
@@ -18,7 +18,7 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
   };
 
   const getNumberDay = date => {
-    const numberDay = new Date(date).getDate()+1;
+    const numberDay = new Date(date).getDate();
     return isNaN(numberDay) ? null : numberDay;
   };
 
