@@ -7,6 +7,7 @@ import TimeCard from './TimeCard/TimeCard';
 import Select from './Select/Select';
 import PayslipTable from './Payslip/PayslipTable';
 import GridContainer from './GridContainer/GridContainer';
+import DataTableCertificates from './DataTableCertificates/DataTableCertificates';
 
 export {
   Input,
@@ -18,4 +19,5 @@ export {
   Select,
   PayslipTable,
   GridContainer,
+  DataTableCertificates
 };
