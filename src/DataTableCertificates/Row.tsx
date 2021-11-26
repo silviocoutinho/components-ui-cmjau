@@ -8,10 +8,11 @@ const Row = ({ record, position }) => {
   const keys = Object.keys(record);  
 
   const getStatus = (status) => {
-    if (status == null) {
+    console.log('Status Component: ', status);
+    if (status === null) {
       return <div className="warning">Aguardando</div>;
     }
-    return status == 0 ? <div className="danger">Recusado</div> : <div className="success">Aceito</div>;
+    return status === false ? <div className="danger">Recusado</div> : <div className="success">Aceito</div>;
   };
 
   return (
