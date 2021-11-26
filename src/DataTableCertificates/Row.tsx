@@ -19,7 +19,7 @@ const Row = ({ record, position }) => {
       <td key="processo">{record['processo']}</td>
       <td key="curso">{record['curso']}</td>
       <td key="entidade">{record['entidade']}</td>
-      <td key="carga_horaria">{record['carga_horaria']}h</td>
+      <td key="carga_horaria">{record['carga_horaria']}</td>
       <td key="data_emissao_certificado">{record['data_emissao_certificado']}</td>
       <td key="aceito">{ getStatus(record['aceito']) }</td>
       <td key="data_aceite">{record['data_aceite']}</td>
