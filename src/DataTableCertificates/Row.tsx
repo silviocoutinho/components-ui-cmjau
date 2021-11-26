@@ -7,8 +7,7 @@ const formatLine = value => {
 const Row = ({ record, position }) => {
   const keys = Object.keys(record);  
 
-  const getStatus = (status) => {
-    console.log('Status Component: ', status);
+  const getStatus = (status) => {   
     if (status === null) {
       return <div className="warning">Aguardando</div>;
     }
@@ -16,7 +15,7 @@ const Row = ({ record, position }) => {
   };
 
   return (
-    <tr key={record.dia} className={formatLine(position)}>
+    <tr key={record.processo} className={formatLine(position)}>
       <td key="processo">{record['processo']}</td>
       <td key="curso">{record['curso']}</td>
       <td key="entidade">{record['entidade']}</td>
