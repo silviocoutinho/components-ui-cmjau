@@ -7,6 +7,7 @@ const Select = ({
   data,
   field,
   selectedValue,
+  id,
   onChange,
   ...rest
 }: Props) => {
@@ -21,7 +22,7 @@ const Select = ({
       <div className="grid-container">
         <div className="select-container">
           <label>{label}</label>
-          <select id="selectMonths" ref={componentRef} onChange={onChange}>
+          <select id={id} ref={componentRef} onChange={onChange}>
             {data.map((element, key) => {
               return (
                 <option

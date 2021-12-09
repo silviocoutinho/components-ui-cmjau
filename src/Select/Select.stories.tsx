@@ -36,4 +36,5 @@ Basic.args = {
   label: 'Month',
   data: data,
   selectedValue: 5,
+  id: "selectMonths"
 };
