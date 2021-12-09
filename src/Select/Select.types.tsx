@@ -5,4 +5,5 @@ export interface Props extends InputHTMLAttributes<HTMLSelectElement> {
   data: any;
   field: string;
   selectedValue?: string;
+  id: string;
 }
