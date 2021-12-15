@@ -41,6 +41,39 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
     let workedHours = Math.floor(workedMinutes / 60);
     workedMinutes = workedMinutes - workedHours * 60;
 
+   
+
+    return {diffMinutes, workedHours, workedMinutes}
+  };
+
+  const missingTime = (in1, out1, in2, out2, workingTime) => {
+    let { workedHours, workedMinutes} = diffTime(in1, out1, in2, out2, workingTime);
+
+    workedMinutes = (workingTime*60)- (workedMinutes + workedHours * 60);
+    workedHours = Math.floor(workedMinutes / 60);
+    workedMinutes = workedMinutes - workedHours * 60;
+
+    console.log('workedHours', workedHours,  'in1', in1, 'out1', out1, 'in2', in2, 'out2', out2);
+
+   if (workedHours <= -1) {
+      workedHours = 0;
+      workedMinutes = 0;
+    } 
+
+
+    return (
+      <div className='primary'>
+        {workedHours.toString().padStart(2, '0') +
+          ':' +
+          workedMinutes.toString().padStart(2, '0')}
+      </div>
+    );
+  }
+
+  const totalWorkTime = (in1, out1, in2, out2, workingTime) => {
+
+    const {diffMinutes, workedHours, workedMinutes} = diffTime(in1, out1, in2, out2, workingTime);
+
     let colorTotalTime = 'success';
 
     if (diffMinutes > 0 && diffMinutes <= 5) {
@@ -54,7 +87,6 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
     if (diffMinutes > 10) {
       colorTotalTime = 'danger';
     }
-
     return (
       <div className={colorTotalTime}>
         {workedHours.toString().padStart(2, '0') +
@@ -62,10 +94,11 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
           workedMinutes.toString().padStart(2, '0')}
       </div>
     );
-  };
+  }
 
   const overTime = (in3, out3) => {
-    if (in3 == null || out3 == null) return '';
+    if (in3 == null && out3 == null) return '';
+    if (out3 == null) out3 = in3
     in3 = new Date('1970-01-01T' + in3 + 'Z').getTime();
     out3 = new Date('1970-01-01T' + out3 + 'Z').getTime();
 
@@ -81,6 +114,29 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
     );
   };
 
+  const checkTimeCardDataError = (array, date) => {
+      let count = 0;
+      let nowDate = new Date();
+      let currentDate = new Date(nowDate.getFullYear()+'-'+(nowDate.getMonth()+1)+'-'+nowDate.getDate()); 
+      array.forEach(elements => {      
+        if (elements !== null) count++
+        
+    });  
+    const compareDate = new Date(date).getTime() < currentDate.getTime();
+    if (count % 2 !== 0 && compareDate) {     
+      return true
+    } else {
+      return false;
+    }
+  }
+  const showErrorTotal = msg => {
+    return (
+      <div className='error'>
+        {msg}
+      </div>
+    );
+  }
+
   hasOverTime = false;
   data.forEach(elements => {
     const { ent3, sai3 } = elements;
@@ -91,12 +147,63 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
 
   const dataFormated = data.map(element => {
     const { ent3, sai3, dia, ...rest } = element;
-    if (hasOverTime) {
+    const hasError = checkTimeCardDataError([element['ent1'], element['sai1'], element['ent2'], element['sai2'], element['ent3'], element['sai3']], dia)
+    //total: showErrorTotal('ERRO')
+     if (hasError && !hasOverTime) {
       return {
         data: getNumberDay(dia),
         diaDaSemana: getDayOfWeek(dia),
         ...rest,
-        total: diffTime(
+        total: showErrorTotal('ERRO'),
+        faltam: showErrorTotal('ERRO'),
+        ent3,
+        sai3,        
+      };    
+    } else if (hasError && hasOverTime) {
+      return {
+        data: getNumberDay(dia),
+        diaDaSemana: getDayOfWeek(dia),
+        ...rest,
+        total: showErrorTotal('ERRO'),
+        faltam: showErrorTotal('ERRO'),
+        ent3,
+        sai3,
+        horaExtra: overTime(ent3, sai3),
+      };  
+    } else if (!hasError && !hasOverTime) {
+      return {
+        data: getNumberDay(dia),
+        diaDaSemana: getDayOfWeek(dia),
+        ...rest,
+        total: totalWorkTime(
+          element['ent1'],
+          element['sai1'],
+          element['ent2'],
+          element['sai2'],
+          workingTime,
+        ),
+        faltam: missingTime(
+          element['ent1'],
+          element['sai1'],
+          element['ent2'],
+          element['sai2'],
+          workingTime,
+        ),
+        
+      }; 
+    } else if (hasOverTime) {
+      return {
+        data: getNumberDay(dia),
+        diaDaSemana: getDayOfWeek(dia),
+        ...rest,
+        total: totalWorkTime(
+          element['ent1'],
+          element['sai1'],
+          element['ent2'],
+          element['sai2'],
+          workingTime,
+        ),
+        faltam: missingTime(
           element['ent1'],
           element['sai1'],
           element['ent2'],
@@ -106,19 +213,21 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
         ent3,
         sai3,
         horaExtra: overTime(ent3, sai3),
-      };
+      };  
+      
     } else {
       return {
         data: getNumberDay(dia),
         diaDaSemana: getDayOfWeek(dia),
         ...rest,
-        total: diffTime(
+        total:  totalWorkTime(
           element['ent1'],
           element['sai1'],
           element['ent2'],
           element['sai2'],
           workingTime,
         ),
+        faltam: 0,
       };
     }
   });

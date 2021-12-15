@@ -41,13 +41,24 @@ export const Wrapper = styled.div<InputProps>`
       border-left: none;
       border-right: none;
 
+      .primary {
+        color: #004085;
+        background-color: #cce5ff;
+        border-color: #b8daff;
+        border: 1px solid #004085;
+      }
       .danger {
         color: #721c24;
         background-color: #f8d7da;
         border-color: #f5c6cb;
         border: 1px solid #721c24;
       }
-
+      .error {
+        color: #fff3cd;
+        background-color: #d92635;
+        border-color: #981b25;
+        border: 1px solid #410b10;
+      }
       .success {
         color: #155724;
         background-color: #d4edda;
