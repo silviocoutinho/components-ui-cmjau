@@ -8,17 +8,17 @@ const TimeCard = ({ data, head, workingTime, ...rest }: Props) => {
   const componentRef = useRef<HTMLDivElement>(null);
   let hasOverTime: boolean;
 
-  const getDayOfWeek = date => {
-    const dayOfWeek = new Date(date).getDay();
+  const getDayOfWeek = date => {   
+    const dayOfWeek = new Date(date).getDay()+1;    
     return isNaN(dayOfWeek)
       ? null
-      : ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'][
+      : ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado','Domingo', 'Segunda',][
           dayOfWeek
         ];
   };
 
-  const getNumberDay = date => {
-    const numberDay = new Date(date).getDate();
+  const getNumberDay = date => {    
+    const numberDay = new Date(date + ' 00:00:01').getDate();
     return isNaN(numberDay) ? null : numberDay;
   };
 
